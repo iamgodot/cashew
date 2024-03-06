@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import router from "./routes/auth.js";
 import cookieParser from "cookie-parser";
 import connectDB from "./db.js";
+import { errorHandler } from "./middleware.js";
 
 const app = express();
 app.use(express.json());
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
   res.send("Hello world!");
 });
 app.use("/api/auth", router);
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   connectDB();
