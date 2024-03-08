@@ -2,9 +2,10 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect } from "react";
 import { useAuthContext } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { Loader2 } from "lucide-react";
 
 const Login = () => {
-    const { user, loginWithRedirect, getAccessTokenSilently } = useAuth0();
+    const { user, getAccessTokenSilently } = useAuth0();
     const { setAuthUser } = useAuthContext();
     const navigate = useNavigate();
     useEffect(() => {
@@ -31,12 +32,11 @@ const Login = () => {
         if (user) {
             fetchData();
         }
-    }, [user]);
+    }, [user, setAuthUser, getAccessTokenSilently, navigate]);
     return (
-        <div>
-            <button onClick={async () => await loginWithRedirect()}>
-                Login here
-            </button>
+        <div className="flex items-center justify-center pt-8">
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            Logging in...
         </div>
     );
 };
