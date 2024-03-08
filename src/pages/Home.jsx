@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react"
 import { useAuthContext } from "../contexts/AuthContext"
 import { useNavigate } from "react-router-dom"
 import Sidebar from "@/components/Sidebar"
-import Container from "@/components/message/Container"
+import Container from "@/components/chat/Container"
 import { Loader2 } from "lucide-react"
 
 const Home = () => {
