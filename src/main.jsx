@@ -1,13 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { Auth0Provider } from "@auth0/auth0-react";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { AuthContextProvider } from "./contexts/AuthContext";
-import "./index.css";
-import Error from "./pages/Error";
-import Login from "./pages/Login";
-import Home from "./pages/Home";
-import Root from "./pages/Root";
+import React from "react"
+import ReactDOM from "react-dom/client"
+import { Auth0Provider } from "@auth0/auth0-react"
+import { RouterProvider, createBrowserRouter } from "react-router-dom"
+import { AuthContextProvider } from "./contexts/AuthContext"
+import "./index.css"
+import Error from "./pages/Error"
+import Home from "./pages/Home"
+import Root from "./pages/Root"
 
 const router = createBrowserRouter([
     {
@@ -19,13 +18,9 @@ const router = createBrowserRouter([
                 path: "",
                 element: <Home />,
             },
-            {
-                path: "login",
-                element: <Login />,
-            },
         ],
     },
-]);
+])
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
@@ -33,8 +28,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             domain={import.meta.env.VITE_AUTH0_DOMAIN}
             clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
             authorizationParams={{
-                // redirect_uri: window.location.origin,
-                redirect_uri: "http://localhost:3000/login",
+                redirect_uri: "http://localhost:3000",
                 audience: `https://${import.meta.env.VITE_AUTH0_DOMAIN}/api/v2/`,
                 scope: "read:current_user update:current_user_metadata",
             }}
@@ -43,5 +37,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                 <RouterProvider router={router}></RouterProvider>
             </AuthContextProvider>
         </Auth0Provider>
-    </React.StrictMode>,
-);
+    </React.StrictMode>
+)
