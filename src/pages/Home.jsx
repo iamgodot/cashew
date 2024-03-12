@@ -3,8 +3,8 @@ import { useAuth0 } from "@auth0/auth0-react"
 import { useAuthContext } from "../contexts/AuthContext"
 import Sidebar from "@/components/Sidebar"
 import Container from "@/components/chat/Container"
-import { Loader2 } from "lucide-react"
 import useLogin from "@/hooks/useLogin"
+import { Skeleton } from "@/components/ui/skeleton"
 
 const Home = () => {
     const { isAuthenticated } = useAuth0()
@@ -16,15 +16,17 @@ const Home = () => {
             login()
         } else {
             setAuthUser(null)
-            console.log("Set null")
         }
     }, [isAuthenticated, setAuthUser]) //FIXME: why login will keep invoking effect
 
     if (loading)
         return (
-            <div className="flex items-center justify-center pt-8">
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Loading...
+            <div className="flex items-center space-x-4">
+                <Skeleton className="h-[416px] w-[100px] rounded-lg" />
+                <div className="flex flex-col space-y-4">
+                    <Skeleton className="h-[100px] w-[500px] rounded-lg" />
+                    <Skeleton className="h-[300px] w-[500px] rounded-lg" />
+                </div>
             </div>
         )
 
