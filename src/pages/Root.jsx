@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar"
+import { Toaster } from "@/components/ui/toaster"
 import { Outlet } from "react-router-dom"
 
 const Root = () => {
@@ -8,6 +9,7 @@ const Root = () => {
             <div className="flex-1 flex items-center justify-center">
                 <Outlet />
             </div>
+            <Toaster />
         </main>
     )
 }

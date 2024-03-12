@@ -1,6 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react"
 import { useAuthContext } from "@/contexts/AuthContext"
 import { useState } from "react"
+import { toast } from "@/components/ui/use-toast"
 
 const useLogin = () => {
     const { user, getAccessTokenSilently } = useAuth0()
@@ -23,7 +24,11 @@ const useLogin = () => {
             const userData = await resp.json()
             setAuthUser(userData)
         } catch (e) {
-            //TODO: toast error message
+            toast({
+                variant: "destructive",
+                title: "Un oh! Something went wrong.",
+                description: e.message,
+            })
             console.log(e.message)
         } finally {
             setLoading(false)
