@@ -4,7 +4,6 @@ import { Separator } from "./ui/separator"
 const Conversations = () => {
     return (
         <div className="py-2 flex flex-col overflow-auto">
-            <Separator />
             <Conversation />
             <Separator />
             <Conversation />
