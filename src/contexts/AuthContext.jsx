@@ -8,8 +8,11 @@ export const useAuthContext = () => {
 
 export const AuthContextProvider = ({ children }) => {
     const [authUser, setAuthUser] = useState(null)
+    const [accessToken, setAccessToken] = useState(null)
     return (
-        <AuthContext.Provider value={{ authUser, setAuthUser }}>
+        <AuthContext.Provider
+            value={{ authUser, setAuthUser, accessToken, setAccessToken }}
+        >
             {children}
         </AuthContext.Provider>
     )

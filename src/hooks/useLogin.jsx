@@ -6,7 +6,7 @@ import { toast } from "@/components/ui/use-toast"
 const useLogin = () => {
     const { user, getAccessTokenSilently } = useAuth0()
     const [loading, setLoading] = useState(false)
-    const { setAuthUser } = useAuthContext()
+    const { setAuthUser, setAccessToken } = useAuthContext()
     const login = async () => {
         try {
             setLoading(true)
@@ -23,6 +23,7 @@ const useLogin = () => {
             })
             const userData = await resp.json()
             setAuthUser(userData)
+            setAccessToken(accessToken)
         } catch (e) {
             toast({
                 variant: "destructive",

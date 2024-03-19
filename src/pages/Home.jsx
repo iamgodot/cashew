@@ -8,7 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 
 const Home = () => {
     const { isAuthenticated } = useAuth0()
-    const { authUser, setAuthUser } = useAuthContext()
+    const { authUser, setAuthUser, setAccessToken } = useAuthContext()
     const { login, loading } = useLogin()
 
     useEffect(() => {
@@ -16,8 +16,9 @@ const Home = () => {
             login()
         } else {
             setAuthUser(null)
+            setAccessToken(null)
         }
-    }, [isAuthenticated, setAuthUser]) //FIXME: why login will keep invoking effect
+    }, [isAuthenticated, setAuthUser, setAccessToken])
 
     if (loading)
         return (
@@ -31,7 +32,7 @@ const Home = () => {
         )
 
     return (
-        <div className="flex items-center justify-center border border-gray-300 rounded-lg overflow-hidden h-2/3 w-3/4">
+        <div className="flex items-center justify-center border border-gray-300 rounded-lg overflow-hidden h-2/3 w-3/4 2xl:w-1/2">
             {authUser ? (
                 <>
                     <Sidebar />
