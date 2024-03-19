@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client"
 import { Auth0Provider } from "@auth0/auth0-react"
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import { AuthContextProvider } from "./contexts/AuthContext"
+import { ConversationContextProvider } from "./contexts/ConversationContext"
 import "./index.css"
 import Error from "./pages/Error"
 import Home from "./pages/Home"
@@ -34,7 +35,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             }}
         >
             <AuthContextProvider>
-                <RouterProvider router={router}></RouterProvider>
+                <ConversationContextProvider>
+                    <RouterProvider router={router}></RouterProvider>
+                </ConversationContextProvider>
             </AuthContextProvider>
         </Auth0Provider>
     </React.StrictMode>
