@@ -1,23 +1,33 @@
+import useMessages from "@/hooks/useMessages"
 import Message from "./Message"
+import { Skeleton } from "../ui/skeleton"
+import { useEffect, useRef } from "react"
 
 const Messages = () => {
+    const { loading, currentMessages } = useMessages()
+
+    const messagesEndRef = useRef(null)
+
+    useEffect(() => {
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    }, [currentMessages])
+
+    if (loading)
+        return (
+            <div className="flex items-center justify-center space-x-4">
+                <Skeleton className="h-12 w-12 rounded-full" />
+                <div className="space-y-2">
+                    <Skeleton className="h-4 w-[250px]" />
+                    <Skeleton className="h-4 w-[200px]" />
+                </div>
+            </div>
+        )
     return (
-        <div className="flex flex-col overflow-auto">
-            <Message content="Hi!" timestamp="14:01" position="right" />
-            <Message content="Hi there." timestamp="14:03" />
-            <Message
-                content="How's it going?"
-                timestamp="14:03"
-                position="right"
-            />
-            <Message content="Good, how about you?" timestamp="14:05" />
-            <Message content="I heard u moved to Seattle?" timestamp="14:05" />
-            <Message
-                content="No, I'm still thinking about that..."
-                timestamp="14:10"
-                position="right"
-            />
-            <Message content="Cool, take your time." timestamp="14:33" />
+        <div className="flex flex-col overflow-auto overscroll-contain">
+            {currentMessages.map((message, idx) => (
+                <Message key={idx} message={message} />
+            ))}
+            <div ref={messagesEndRef}></div>
         </div>
     )
 }
