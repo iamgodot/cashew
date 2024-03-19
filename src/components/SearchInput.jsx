@@ -4,7 +4,7 @@ import { Search } from "lucide-react"
 
 const SearchInput = () => {
     return (
-        <form className="flex items-center pt-3 pb-8 gap-2">
+        <form className="flex items-center pt-3 pb-5 gap-2">
             <Input
                 placeholder="Search for conversations"
                 className="rounded-full "
