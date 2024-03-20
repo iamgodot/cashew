@@ -2,7 +2,7 @@ import { useConversationContext } from "@/contexts/ConversationContext"
 import { useSocketContext } from "@/contexts/SocketContext"
 import Profile from "./chat/Profile"
 
-const Conversation = ({ conversation, last }) => {
+const Conversation = ({ conversation }) => {
     const { currentConversation, setCurrentConversation } =
         useConversationContext()
     const isCurrent = currentConversation?.id === conversation.id
@@ -12,7 +12,7 @@ const Conversation = ({ conversation, last }) => {
     return (
         <>
             <div
-                className={`flex gap-1 my-1 pl-2 items-center hover:bg-gray-100 rounded p-1 cursor-pointer ${isCurrent ? "bg-gray-200" : ""}`}
+                className={`flex gap-1 my-1 pl-3 items-center hover:bg-gray-100 rounded p-1 cursor-pointer ${isCurrent ? "bg-gray-200" : ""}`}
                 onClick={() => setCurrentConversation(conversation)}
             >
                 <Profile

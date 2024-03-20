@@ -9,20 +9,18 @@ const Sidebar = () => {
     const { onlineUsers } = useSocketContext()
     const isOnline = onlineUsers.includes(authUser.id)
     return (
-        <div className="border-r border-gray-300 p-2 flex flex-col h-full w-1/4 min-w-[200px]">
+        <div className="border-r border-gray-300 flex flex-col h-full w-1/4 min-w-[200px]">
             <SearchInput />
             <Conversations />
-            <div className="flex items-center pt-5 pb-1 gap-2 mt-auto">
+            <div className="flex items-center p-2 gap-2 mt-auto bg-gray-100">
                 <Profile
                     src={authUser.profilePic}
                     alt="Me"
                     isOnline={isOnline}
                 />
-                <div className="flex-1 flex items-center justify-between">
+                <div className="flex flex-col items-start justify-between">
                     <span className="font-semibold">Godot</span>
-                    <ul className="list-disc marker:text-green-600">
-                        <li className="text-xs text-gray-600">Online</li>
-                    </ul>
+                    <span className="text-xs text-gray-600">Online</span>
                 </div>
             </div>
         </div>

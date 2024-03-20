@@ -1,4 +1,3 @@
-import { useState } from "react"
 import MessageInput from "./MessageInput"
 import Messages from "./Messages"
 import { useConversationContext } from "@/contexts/ConversationContext"
