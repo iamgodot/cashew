@@ -2,10 +2,11 @@ import useMessages from "@/hooks/useMessages"
 import Message from "./Message"
 import { Skeleton } from "../ui/skeleton"
 import { useEffect, useRef } from "react"
+import useNewMessage from "@/hooks/useNewMessage"
 
 const Messages = () => {
     const { loading, currentMessages } = useMessages()
-
+    useNewMessage()
     const messagesEndRef = useRef(null)
 
     useEffect(() => {
@@ -23,7 +24,7 @@ const Messages = () => {
             </div>
         )
     return (
-        <div className="flex flex-col overflow-auto overscroll-contain">
+        <div className="flex-1 flex-col overflow-auto overscroll-contain">
             {currentMessages.map((message, idx) => (
                 <Message key={idx} message={message} />
             ))}
