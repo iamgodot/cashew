@@ -66,7 +66,13 @@ const useMessages = () => {
         if (currentConversation) getMessages()
     }, [accessToken, currentConversation, setCurrentMessages])
 
-    return { sending, sendMessage, loading, currentMessages }
+    return {
+        sending,
+        sendMessage,
+        loading,
+        currentMessages,
+        setCurrentMessages,
+    }
 }
 
 export default useMessages
