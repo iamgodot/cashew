@@ -8,6 +8,7 @@ import "./index.css"
 import Error from "./pages/Error"
 import Home from "./pages/Home"
 import Root from "./pages/Root"
+import { SocketContextProvider } from "./contexts/SocketContext"
 
 const router = createBrowserRouter([
     {
@@ -36,7 +37,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         >
             <AuthContextProvider>
                 <ConversationContextProvider>
-                    <RouterProvider router={router}></RouterProvider>
+                    <SocketContextProvider>
+                        <RouterProvider router={router}></RouterProvider>
+                    </SocketContextProvider>
                 </ConversationContextProvider>
             </AuthContextProvider>
         </Auth0Provider>
