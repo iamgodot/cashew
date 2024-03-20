@@ -6,8 +6,8 @@ import userRouter from "./routes/user.js"
 import connectDB from "./db.js"
 import { errorHandler, authHandler } from "./middleware.js"
 import { auth } from "express-oauth2-jwt-bearer"
+import { app, server } from "./socket.js"
 
-const app = express()
 app.use(express.json())
 dotenv.config()
 
@@ -37,7 +37,7 @@ app.use(
 )
 app.use(errorHandler)
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     connectDB()
     console.log(`Server running on http://localhost:${PORT} 🎉 🚀`)
 })
