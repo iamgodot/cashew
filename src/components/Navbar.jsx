@@ -28,7 +28,6 @@ const Navbar = () => {
                         alt="logo"
                         className="w-28 h-8 rounded-lg cursor-pointer"
                     />
-                    <span>Chat anywhere, anytime</span>
                 </Link>
                 {authUser ? (
                     <DropdownMenu>
@@ -60,7 +59,7 @@ const Navbar = () => {
                         </DropdownMenuContent>
                     </DropdownMenu>
                 ) : (
-                    <div>
+                    <div className="font-serif">
                         <Button
                             size="sm"
                             onClick={async () => await loginWithRedirect()}
