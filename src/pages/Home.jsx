@@ -58,11 +58,11 @@ const Home = () => {
                         1000,
                         "Cashew supports contact list search",
                         1000,
-                        "Cashew is built upon React, TailwindCSS and Shadcn UI",
+                        "Cashew is built with React, TailwindCSS and Shadcn UI",
                         1000,
-                        "Cashew is built upon Express, MongoDB and Mongoose",
+                        "Cashew is built with Express, MongoDB and Mongoose",
                         1000,
-                        "Cashew is built upon Auth0 and Socket.io",
+                        "Cashew is built with Auth0 and Socket.io",
                         1000,
                     ]}
                     speed={10}

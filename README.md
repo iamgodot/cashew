@@ -1,34 +1,48 @@
 # Cashew
 
-A chat app built with MERN stack.
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![ShadcnUI](https://img.shields.io/badge/shadcnui-1C1E24?style=for-the-badge&logo=shadcnui&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 
-## Design
+Cashew is a simple chat application built with [the MERN stack](https://www.mongodb.com/mern-stack).
 
-### Auth
+![](./demo.png)
 
-Use Auth0 for auth integration.
+## Features
 
-1. Login
+1. Authentication&Authorization with JWT
+2. Google/GitHub login support
+3. Real-time messaging
+4. Online status display
+5. Contact list search
+6. Responsitve UI design
 
-- The actual authentication/authorization happens in Auth0's server
-- After that frontend sends jwt back
-- Backend validates the token and request user info from Auth0
-- If user doesn't exist, backend creates new user otherwise gets user from db
-- Backend sends back user info
-- Frontend(login page) gets user info and saves them in auth context
-- Frontend(login page) redirects to homepage.
+## Usage
 
-2. Logout
+```bash
+# Clone the repo
+git clone https://github.com/iamgodot/cashew.git
+cd cashew
 
-**For this part backend handling is optional.**
+# Setup env file(fill in the variables)
+cp .env.example .env
 
-- Active
-  - The actual logout happens in Auth0's server
-  - Browser credentials get invalidated
-  - Frontend calls logout api on backend
-  - [ ] Backend records this event
-  - Frontend redirects to login page
-- Passive
-  - Manually clear browser credentials
-  - Frontend detects by `user`(from Auth0 hook) with useEffect()
-  - Frontend redirects to login page
+# Install dependencies
+npm i
+
+# Run api server
+npm run server
+
+# Run app
+npm run dev
+```
+
+## Contributing
+
+Feel free to [open an issue](https://github.com/iamgodot/cashew/issues) or submit a pull request.
+
+## License
+
+![MIT](https://img.shields.io/github/license/iamgodot/cashew?style=for-the-badge)
